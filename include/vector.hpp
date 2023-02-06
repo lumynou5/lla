@@ -77,7 +77,7 @@ namespace lla {
             return result;
         }
 
-        Vec operator+(const Vec<T, N> rhs) const {
+        Vec operator+(const Vec<T, N>& rhs) const {
             Vec result = *this;
             for (std::size_t i = 0; i < N; ++i) {
                 result.arr[i] += rhs.arr[i];
@@ -92,7 +92,7 @@ namespace lla {
             return *this;
         }
 
-        Vec operator-(const Vec<T, N> rhs) const {
+        Vec operator-(const Vec<T, N>& rhs) const {
             Vec result = *this;
             for (std::size_t i = 0; i < N; ++i) {
                 result.arr[i] -= rhs.arr[i];
@@ -100,7 +100,7 @@ namespace lla {
             return result;
         }
 
-        Vec& operator-=(const Vec<T, N> rhs) {
+        Vec& operator-=(const Vec<T, N>& rhs) {
             for (std::size_t i = 0; i < N; ++i) {
                 arr[i] -= rhs.arr[i];
             }
