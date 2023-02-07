@@ -27,3 +27,10 @@ TEST_CASE("Vector subtraction", "[vector]") {
     REQUIRE(v.x() == -9);
     REQUIRE(v.y() == -18);
 }
+
+TEST_CASE("Vector dot product", "[vector]") {
+    lla::Vec2i v(1, 2);
+    lla::Vec2i u(10, 20);
+
+    REQUIRE(v * u == 50);
+}
