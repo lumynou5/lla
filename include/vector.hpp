@@ -65,6 +65,14 @@ namespace lla {
             return arr[i];
         }
 
+        bool operator==(const Vec<T, N>& rhs) const {
+            return arr == rhs.arr;
+        }
+
+        bool operator!=(const Vec<T, N>& rhs) const {
+            return arr != rhs.arr;
+        }
+
         Vec operator+() const {
             return *this;
         }
