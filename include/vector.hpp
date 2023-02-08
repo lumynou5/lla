@@ -115,7 +115,7 @@ namespace lla {
             return *this;
         }
 
-        T operator*(const Vec<T, N>& rhs) const {
+        T dot(const Vec<T, N>& rhs) const {
             T result = 0;
             for (std::size_t i = 0; i < N; ++i) {
                 result += arr[i] * rhs.arr[i];

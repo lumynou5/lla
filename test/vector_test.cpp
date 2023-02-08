@@ -39,5 +39,5 @@ TEST_CASE("Vector dot product", "[vector]") {
     lla::Vec2i v(1, 2);
     lla::Vec2i u(10, 20);
 
-    REQUIRE(v * u == 50);
+    REQUIRE(v.dot(u) == 50);
 }
