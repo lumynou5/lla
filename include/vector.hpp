@@ -1,5 +1,5 @@
-#ifndef LLA_VECTOR_H
-#define LLA_VECTOR_H
+#ifndef LLA_VECTOR_HPP
+#define LLA_VECTOR_HPP
 
 #include <array>
 #include <stdexcept>
@@ -144,4 +144,4 @@ namespace lla {
     using Vec3ll = Vec<long long, 3>;
 }
 
-#endif //LLA_VECTOR_H
+#endif //LLA_VECTOR_HPP
