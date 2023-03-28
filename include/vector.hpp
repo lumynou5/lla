@@ -17,6 +17,12 @@ namespace lla {
             : arr{first, args...}
         {}
 
+        Vec(const Vec<T, N>&) = default;
+        Vec<T, N>& operator=(const Vec<T, N>&) = default;
+
+        Vec(Vec<T, N>&& that) noexcept = default;
+        Vec<T, N>& operator=(Vec<T, N>&& that) noexcept = default;
+
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 1 && Dummy == N, int> = 0>
         const T& x() const {
             return arr[0];
@@ -73,39 +79,39 @@ namespace lla {
             return arr != rhs.arr;
         }
 
-        Vec operator+() const {
+        Vec<T, N> operator+() const {
             return *this;
         }
 
-        Vec operator-() const {
-            Vec result = *this;
+        Vec<T, N> operator-() const {
+            Vec<T, N> result = *this;
             for (auto& x : result.arr) {
                 x = -x;
             }
             return result;
         }
 
-        Vec operator+(const Vec<T, N>& rhs) const {
-            Vec result = *this;
+        Vec<T, N> operator+(const Vec<T, N>& rhs) const {
+            Vec<T, N> result = *this;
             for (std::size_t i = 0; i < N; ++i) {
                 result.arr[i] += rhs.arr[i];
             }
             return result;
         }
 
-        inline Vec& operator+=(const Vec<T, N>& rhs) {
+        inline Vec<T, N>& operator+=(const Vec<T, N>& rhs) {
             return *this = *this + rhs;
         }
 
-        Vec operator-(const Vec<T, N>& rhs) const {
-            Vec result = *this;
+        Vec<T, N> operator-(const Vec<T, N>& rhs) const {
+            Vec<T, N> result = *this;
             for (std::size_t i = 0; i < N; ++i) {
                 result.arr[i] -= rhs.arr[i];
             }
             return result;
         }
 
-        inline Vec& operator-=(const Vec<T, N>& rhs) {
+        inline Vec<T, N>& operator-=(const Vec<T, N>& rhs) {
             return *this = *this - rhs;
         }
 
