@@ -8,82 +8,82 @@ namespace lla {
     template<typename T, std::size_t N>
     class Vec {
     public:
-        Vec() {
+        [[maybe_unused]] Vec() {
             arr.fill(T());
         }
 
         template<typename First, typename... Args>
-        explicit Vec(const First& first, const Args&... args)
+        [[maybe_unused]] explicit Vec(const First& first, const Args&... args)
             : arr{first, args...}
         {}
 
-        Vec(const Vec<T, N>&) = default;
-        Vec<T, N>& operator=(const Vec<T, N>&) = default;
+        [[maybe_unused]] Vec(const Vec<T, N>&) = default;
+        [[maybe_unused]] Vec<T, N>& operator=(const Vec<T, N>&) = default;
 
-        Vec(Vec<T, N>&& that) noexcept = default;
-        Vec<T, N>& operator=(Vec<T, N>&& that) noexcept = default;
+        [[maybe_unused]] Vec(Vec<T, N>&& that) noexcept = default;
+        [[maybe_unused]] Vec<T, N>& operator=(Vec<T, N>&& that) noexcept = default;
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 1 && Dummy == N, int> = 0>
-        const T& x() const {
+        [[maybe_unused]] const T& x() const {
             return arr[0];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 2 && Dummy == N, int> = 0>
-        const T& y() const {
+        [[maybe_unused]] const T& y() const {
             return arr[1];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 3 && Dummy == N, int> = 0>
-        const T& z() const {
+        [[maybe_unused]] const T& z() const {
             return arr[2];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 4 && Dummy == N, int> = 0>
-        const T& w() const {
+        [[maybe_unused]] const T& w() const {
             return arr[3];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 1 && Dummy == N, int> = 0>
-        T& x() {
+        [[maybe_unused]] T& x() {
             return arr[0];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 2 && Dummy == N, int> = 0>
-        T& y() {
+        [[maybe_unused]] T& y() {
             return arr[1];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 3 && Dummy == N, int> = 0>
-        T& z() {
+        [[maybe_unused]] T& z() {
             return arr[2];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 4 && Dummy == N, int> = 0>
-        T& w() {
+        [[maybe_unused]] T& w() {
             return arr[3];
         }
 
-        const T& operator[](std::size_t i) const {
+        [[maybe_unused]] T& operator[](std::size_t i) const {
             return arr[i];
         }
 
-        T& operator[](std::size_t i) {
+        [[maybe_unused]] T& operator[](std::size_t i) {
             return arr[i];
         }
 
-        bool operator==(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] bool operator==(const Vec<T, N>& rhs) const {
             return arr == rhs.arr;
         }
 
-        bool operator!=(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] bool operator!=(const Vec<T, N>& rhs) const {
             return arr != rhs.arr;
         }
 
-        Vec<T, N> operator+() const {
+        [[maybe_unused]] Vec<T, N> operator+() const {
             return *this;
         }
 
-        Vec<T, N> operator-() const {
+        [[maybe_unused]] Vec<T, N> operator-() const {
             Vec<T, N> result = *this;
             for (auto& x : result.arr) {
                 x = -x;
@@ -91,7 +91,7 @@ namespace lla {
             return result;
         }
 
-        Vec<T, N> operator+(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] Vec<T, N> operator+(const Vec<T, N>& rhs) const {
             Vec<T, N> result = *this;
             for (std::size_t i = 0; i < N; ++i) {
                 result.arr[i] += rhs.arr[i];
@@ -99,11 +99,11 @@ namespace lla {
             return result;
         }
 
-        inline Vec<T, N>& operator+=(const Vec<T, N>& rhs) {
+        [[maybe_unused]] inline Vec<T, N>& operator+=(const Vec<T, N>& rhs) {
             return *this = *this + rhs;
         }
 
-        Vec<T, N> operator-(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] Vec<T, N> operator-(const Vec<T, N>& rhs) const {
             Vec<T, N> result = *this;
             for (std::size_t i = 0; i < N; ++i) {
                 result.arr[i] -= rhs.arr[i];
@@ -111,11 +111,11 @@ namespace lla {
             return result;
         }
 
-        inline Vec<T, N>& operator-=(const Vec<T, N>& rhs) {
+        [[maybe_unused]] inline Vec<T, N>& operator-=(const Vec<T, N>& rhs) {
             return *this = *this - rhs;
         }
 
-        T dot(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] T dot(const Vec<T, N>& rhs) const {
             T result = 0;
             for (std::size_t i = 0; i < N; ++i) {
                 result += arr[i] * rhs.arr[i];
@@ -127,21 +127,21 @@ namespace lla {
         std::array<T, N> arr;
     };
 
-    using Vec2f = Vec<float, 2>;
-    using Vec2d = Vec<double, 2>;
-    using Vec2ld = Vec<long double, 2>;
-    using Vec2s = Vec<short, 2>;
-    using Vec2i = Vec<int, 2>;
-    using Vec2l = Vec<long, 2>;
-    using Vec2ll = Vec<long long, 2>;
+    using Vec2f  [[maybe_unused]] = Vec<float, 2>;
+    using Vec2d  [[maybe_unused]] = Vec<double, 2>;
+    using Vec2ld [[maybe_unused]] = Vec<long double, 2>;
+    using Vec2s  [[maybe_unused]] = Vec<short, 2>;
+    using Vec2i  [[maybe_unused]] = Vec<int, 2>;
+    using Vec2l  [[maybe_unused]] = Vec<long, 2>;
+    using Vec2ll [[maybe_unused]] = Vec<long long, 2>;
 
-    using Vec3f = Vec<float, 3>;
-    using Vec3d = Vec<double, 3>;
-    using Vec3ld = Vec<long double, 3>;
-    using Vec3s = Vec<short, 3>;
-    using Vec3i = Vec<int, 3>;
-    using Vec3l = Vec<long, 3>;
-    using Vec3ll = Vec<long long, 3>;
+    using Vec3f  [[maybe_unused]] = Vec<float, 3>;
+    using Vec3d  [[maybe_unused]] = Vec<double, 3>;
+    using Vec3ld [[maybe_unused]] = Vec<long double, 3>;
+    using Vec3s  [[maybe_unused]] = Vec<short, 3>;
+    using Vec3i  [[maybe_unused]] = Vec<int, 3>;
+    using Vec3l  [[maybe_unused]] = Vec<long, 3>;
+    using Vec3ll [[maybe_unused]] = Vec<long long, 3>;
 }
 
 #endif //LLA_VECTOR_HPP
