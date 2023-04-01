@@ -1,5 +1,5 @@
-#ifndef LLA_MACRO_H
-#define LLA_MACRO_H
+#ifndef LLA_MACRO_HPP
+#define LLA_MACRO_HPP
 
 #if __cplusplus >= 202002L
     #define LLA_NODISCARD_PURE [[nodiscard("pure function")]]
@@ -7,4 +7,4 @@
     #define LLA_NODISCARD_PURE [[nodiscard]]
 #endif
 
-#endif //LLA_MACRO_H
+#endif //LLA_MACRO_HPP

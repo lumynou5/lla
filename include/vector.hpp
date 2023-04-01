@@ -3,7 +3,7 @@
 
 #include <array>
 #include <stdexcept>
-#include "macro.h"
+#include "macro.hpp"
 
 namespace lla {
     template<typename T, std::size_t N>
