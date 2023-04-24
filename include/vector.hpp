@@ -25,58 +25,58 @@ namespace lla {
         [[maybe_unused]] Vec<T, N>& operator=(Vec<T, N>&& that) noexcept = default;
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 1 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE inline const T& x() const {
+        [[maybe_unused]] LLA_NODISCARD_PURE const T& x() const {
             return arr[0];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 2 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE inline const T& y() const {
+        [[maybe_unused]] LLA_NODISCARD_PURE const T& y() const {
             return arr[1];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 3 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE inline const T& z() const {
+        [[maybe_unused]] LLA_NODISCARD_PURE const T& z() const {
             return arr[2];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 4 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE inline const T& w() const {
+        [[maybe_unused]] LLA_NODISCARD_PURE const T& w() const {
             return arr[3];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 1 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE inline T& x() {
+        [[maybe_unused]] LLA_NODISCARD_PURE T& x() {
             return arr[0];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 2 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE inline T& y() {
+        [[maybe_unused]] LLA_NODISCARD_PURE T& y() {
             return arr[1];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 3 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE inline T& z() {
+        [[maybe_unused]] LLA_NODISCARD_PURE T& z() {
             return arr[2];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 4 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE inline T& w() {
+        [[maybe_unused]] LLA_NODISCARD_PURE T& w() {
             return arr[3];
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE inline T& operator[](std::size_t i) const {
+        [[maybe_unused]] LLA_NODISCARD_PURE T& operator[](std::size_t i) const {
             return arr[i];
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE inline T& operator[](std::size_t i) {
+        [[maybe_unused]] LLA_NODISCARD_PURE T& operator[](std::size_t i) {
             return arr[i];
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE inline bool operator==(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] LLA_NODISCARD_PURE bool operator==(const Vec<T, N>& rhs) const {
             return arr == rhs.arr;
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE inline bool operator!=(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] LLA_NODISCARD_PURE bool operator!=(const Vec<T, N>& rhs) const {
             return arr != rhs.arr;
         }
 
@@ -100,7 +100,7 @@ namespace lla {
             return result;
         }
 
-        [[maybe_unused]] inline Vec<T, N>& operator+=(const Vec<T, N>& rhs) {
+        [[maybe_unused]] Vec<T, N>& operator+=(const Vec<T, N>& rhs) {
             return *this = *this + rhs;
         }
 
@@ -112,7 +112,7 @@ namespace lla {
             return result;
         }
 
-        [[maybe_unused]] inline Vec<T, N>& operator-=(const Vec<T, N>& rhs) {
+        [[maybe_unused]] Vec<T, N>& operator-=(const Vec<T, N>& rhs) {
             return *this = *this - rhs;
         }
 
