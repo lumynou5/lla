@@ -25,66 +25,66 @@ namespace lla {
         [[maybe_unused]] Vec<T, N>& operator=(Vec<T, N>&& that) noexcept = default;
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 1 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE const T& x() const {
+        [[maybe_unused]] LLA_PURE_FN const T& x() const {
             return arr[0];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 2 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE const T& y() const {
+        [[maybe_unused]] LLA_PURE_FN const T& y() const {
             return arr[1];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 3 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE const T& z() const {
+        [[maybe_unused]] LLA_PURE_FN const T& z() const {
             return arr[2];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 4 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE const T& w() const {
+        [[maybe_unused]] LLA_PURE_FN const T& w() const {
             return arr[3];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 1 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE T& x() {
+        [[maybe_unused]] LLA_PURE_FN T& x() {
             return arr[0];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 2 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE T& y() {
+        [[maybe_unused]] LLA_PURE_FN T& y() {
             return arr[1];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 3 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE T& z() {
+        [[maybe_unused]] LLA_PURE_FN T& z() {
             return arr[2];
         }
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 4 && Dummy == N, int> = 0>
-        [[maybe_unused]] LLA_NODISCARD_PURE T& w() {
+        [[maybe_unused]] LLA_PURE_FN T& w() {
             return arr[3];
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE T& operator[](std::size_t i) const {
+        [[maybe_unused]] LLA_PURE_FN T& operator[](std::size_t i) const {
             return arr[i];
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE T& operator[](std::size_t i) {
+        [[maybe_unused]] LLA_PURE_FN T& operator[](std::size_t i) {
             return arr[i];
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE bool operator==(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] LLA_PURE_FN bool operator==(const Vec<T, N>& rhs) const {
             return arr == rhs.arr;
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE bool operator!=(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] LLA_PURE_FN bool operator!=(const Vec<T, N>& rhs) const {
             return arr != rhs.arr;
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE Vec<T, N> operator+() const {
+        [[maybe_unused]] LLA_PURE_FN Vec<T, N> operator+() const {
             return *this;
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE Vec<T, N> operator-() const {
+        [[maybe_unused]] LLA_PURE_FN Vec<T, N> operator-() const {
             Vec<T, N> result = *this;
             for (auto& x : result.arr) {
                 x = -x;
@@ -92,7 +92,7 @@ namespace lla {
             return result;
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE Vec<T, N> operator+(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] LLA_PURE_FN Vec<T, N> operator+(const Vec<T, N>& rhs) const {
             Vec<T, N> result = *this;
             for (std::size_t i = 0; i < N; ++i) {
                 result.arr[i] += rhs.arr[i];
@@ -104,7 +104,7 @@ namespace lla {
             return *this = *this + rhs;
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE Vec<T, N> operator-(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] LLA_PURE_FN Vec<T, N> operator-(const Vec<T, N>& rhs) const {
             Vec<T, N> result = *this;
             for (std::size_t i = 0; i < N; ++i) {
                 result.arr[i] -= rhs.arr[i];
@@ -116,7 +116,7 @@ namespace lla {
             return *this = *this - rhs;
         }
 
-        [[maybe_unused]] LLA_NODISCARD_PURE T dot(const Vec<T, N>& rhs) const {
+        [[maybe_unused]] LLA_PURE_FN T dot(const Vec<T, N>& rhs) const {
             T result = 0;
             for (std::size_t i = 0; i < N; ++i) {
                 result += arr[i] * rhs.arr[i];
