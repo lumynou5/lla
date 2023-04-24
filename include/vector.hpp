@@ -22,7 +22,7 @@ namespace lla {
         [[maybe_unused]] Vec<T, N>& operator=(const Vec<T, N>&) = default;
 
         [[maybe_unused]] Vec(Vec<T, N>&& that) noexcept = default;
-        [[maybe_unused]] Vec<T, N>& operator=(Vec<T, N>&& that) noexcept = default;
+        [[maybe_unused]] Vec<T, N>& operator=(Vec<T, N>&&) noexcept = default;
 
         template<std::size_t Dummy = N, std::enable_if_t<Dummy >= 1 && Dummy == N, int> = 0>
         [[maybe_unused]] LLA_PURE_FN const T& x() const {
