@@ -13,9 +13,9 @@ namespace lla {
             arr.fill(T());
         }
 
-        template<typename First, typename... Args>
-        [[maybe_unused]] explicit Vec(const First& first, const Args&... args)
-            : arr{first, args...}
+        template<typename... Args>
+        [[maybe_unused]] explicit Vec(const Args&... args)
+            : arr{args...}
         {}
 
         [[maybe_unused]] Vec(const Vec<T, N>&) = default;
